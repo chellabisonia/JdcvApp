@@ -1,20 +1,15 @@
 package com.ada.rncp.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
+import jakarta.persistence.*;
 
-@Getter
-@Setter
+
+
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
     @Id
-    @ColumnDefault("nextval('utilisateur_id_utilisateur_seq'::regclass)")
+    //@ColumnDefault("nextval('utilisateur_id_utilisateur_seq'::regclass)")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_utilisateur", nullable = false)
     private Integer id;
 
@@ -24,7 +19,7 @@ public class Utilisateur {
     @Column(name = "prenom")
     private String prenom;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "telephone", length = 20)
@@ -36,4 +31,66 @@ public class Utilisateur {
     @Column(name = "descriptionpersonnelle", length = Integer.MAX_VALUE)
     private String descriptionpersonnelle;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Utilisateur setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public Utilisateur setNom(String nom) {
+        this.nom = nom;
+        return this;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public Utilisateur setPrenom(String prenom) {
+        this.prenom = prenom;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Utilisateur setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public Utilisateur setTelephone(String telephone) {
+        this.telephone = telephone;
+        return this;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public Utilisateur setAdresse(String adresse) {
+        this.adresse = adresse;
+        return this;
+    }
+
+    public String getDescriptionpersonnelle() {
+        return descriptionpersonnelle;
+    }
+
+    public Utilisateur setDescriptionpersonnelle(String descriptionpersonnelle) {
+        this.descriptionpersonnelle = descriptionpersonnelle;
+        return this;
+    }
 }
