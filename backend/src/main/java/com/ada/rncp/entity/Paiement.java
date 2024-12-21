@@ -1,21 +1,15 @@
 package com.ada.rncp.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "paiement")
 public class Paiement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ColumnDefault("nextval('paiement_id_paiement_seq'::regclass)")
     @Column(name = "id_paiement", nullable = false)
     private Integer id;
 
@@ -38,4 +32,66 @@ public class Paiement {
     @JoinColumn(name = "id_reservation")
     private Reservation idReservation;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Paiement setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public BigDecimal getMontant() {
+        return montant;
+    }
+
+    public Paiement setMontant(BigDecimal montant) {
+        this.montant = montant;
+        return this;
+    }
+
+    public String getModePaiement() {
+        return modePaiement;
+    }
+
+    public Paiement setModePaiement(String modePaiement) {
+        this.modePaiement = modePaiement;
+        return this;
+    }
+
+    public LocalDate getDatePaiement() {
+        return datePaiement;
+    }
+
+    public Paiement setDatePaiement(LocalDate datePaiement) {
+        this.datePaiement = datePaiement;
+        return this;
+    }
+
+    public String getNumtransaction() {
+        return numtransaction;
+    }
+
+    public Paiement setNumtransaction(String numtransaction) {
+        this.numtransaction = numtransaction;
+        return this;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public Paiement setStatut(String statut) {
+        this.statut = statut;
+        return this;
+    }
+
+    public Reservation getIdReservation() {
+        return idReservation;
+    }
+
+    public Paiement setIdReservation(Reservation idReservation) {
+        this.idReservation = idReservation;
+        return this;
+    }
 }

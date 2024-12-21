@@ -4,20 +4,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "sejour")
 public class Sejour {
     @Id
-    @ColumnDefault("nextval('sejour_id_sejour_seq'::regclass)")
     @Column(name = "id_sejour", nullable = false)
     private Integer id;
 
@@ -42,4 +36,75 @@ public class Sejour {
     @Column(name = "datefindispo")
     private LocalDate datefindispo;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Sejour setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public Sejour setTitre(String titre) {
+        this.titre = titre;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Sejour setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public Sejour setVille(String ville) {
+        this.ville = ville;
+        return this;
+    }
+
+    public String getTypehebergement() {
+        return typehebergement;
+    }
+
+    public Sejour setTypehebergement(String typehebergement) {
+        this.typehebergement = typehebergement;
+        return this;
+    }
+
+    public BigDecimal getPrixparnuit() {
+        return prixparnuit;
+    }
+
+    public Sejour setPrixparnuit(BigDecimal prixparnuit) {
+        this.prixparnuit = prixparnuit;
+        return this;
+    }
+
+    public LocalDate getDatedebutdispo() {
+        return datedebutdispo;
+    }
+
+    public Sejour setDatedebutdispo(LocalDate datedebutdispo) {
+        this.datedebutdispo = datedebutdispo;
+        return this;
+    }
+
+    public LocalDate getDatefindispo() {
+        return datefindispo;
+    }
+
+    public Sejour setDatefindispo(LocalDate datefindispo) {
+        this.datefindispo = datefindispo;
+        return this;
+    }
 }

@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 @Table(name = "utilisateur")
 public class Utilisateur {
     @Id
-    //@ColumnDefault("nextval('utilisateur_id_utilisateur_seq'::regclass)")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_utilisateur", nullable = false)
     private Integer id;

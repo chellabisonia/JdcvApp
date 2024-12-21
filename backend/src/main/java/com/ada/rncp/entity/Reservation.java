@@ -4,19 +4,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "reservation")
 public class Reservation {
     @Id
-    @ColumnDefault("nextval('reservation_id_reservation_seq'::regclass)")
     @Column(name = "id_reservation", nullable = false)
     private Integer id;
 
@@ -35,4 +29,57 @@ public class Reservation {
     @Column(name = "datefinreservationsejour")
     private LocalDate datefinreservationsejour;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Reservation setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public LocalDate getDateReservation() {
+        return dateReservation;
+    }
+
+    public Reservation setDateReservation(LocalDate dateReservation) {
+        this.dateReservation = dateReservation;
+        return this;
+    }
+
+    public Integer getNombreParticipants() {
+        return nombreParticipants;
+    }
+
+    public Reservation setNombreParticipants(Integer nombreParticipants) {
+        this.nombreParticipants = nombreParticipants;
+        return this;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public Reservation setStatut(String statut) {
+        this.statut = statut;
+        return this;
+    }
+
+    public LocalDate getDatedebutreservationsejour() {
+        return datedebutreservationsejour;
+    }
+
+    public Reservation setDatedebutreservationsejour(LocalDate datedebutreservationsejour) {
+        this.datedebutreservationsejour = datedebutreservationsejour;
+        return this;
+    }
+
+    public LocalDate getDatefinreservationsejour() {
+        return datefinreservationsejour;
+    }
+
+    public Reservation setDatefinreservationsejour(LocalDate datefinreservationsejour) {
+        this.datefinreservationsejour = datefinreservationsejour;
+        return this;
+    }
 }

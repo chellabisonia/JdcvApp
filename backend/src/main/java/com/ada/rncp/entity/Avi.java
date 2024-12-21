@@ -1,20 +1,14 @@
 package com.ada.rncp.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "avis")
 public class Avi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ColumnDefault("nextval('avis_id_avis_seq'::regclass)")
     @Column(name = "id_avis", nullable = false)
     private Integer id;
 
@@ -35,4 +29,57 @@ public class Avi {
     @JoinColumn(name = "id_sejour")
     private Sejour idSejour;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Avi setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public Integer getNote() {
+        return note;
+    }
+
+    public Avi setNote(Integer note) {
+        this.note = note;
+        return this;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public Avi setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+        return this;
+    }
+
+    public LocalDate getDateAvis() {
+        return dateAvis;
+    }
+
+    public Avi setDateAvis(LocalDate dateAvis) {
+        this.dateAvis = dateAvis;
+        return this;
+    }
+
+    public Utilisateur getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public Avi setIdUtilisateur(Utilisateur idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
+        return this;
+    }
+
+    public Sejour getIdSejour() {
+        return idSejour;
+    }
+
+    public Avi setIdSejour(Sejour idSejour) {
+        this.idSejour = idSejour;
+        return this;
+    }
 }

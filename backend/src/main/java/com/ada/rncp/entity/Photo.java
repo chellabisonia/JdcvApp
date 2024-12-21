@@ -1,20 +1,14 @@
 package com.ada.rncp.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-
 import java.time.LocalDate;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "photo")
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ColumnDefault("nextval('photo_id_photo_seq'::regclass)")
     @Column(name = "id_photo", nullable = false)
     private Integer id;
 
@@ -28,4 +22,39 @@ public class Photo {
     @JoinColumn(name = "id_sejour")
     private Sejour idSejour;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Photo setId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getUrlPhoto() {
+        return urlPhoto;
+    }
+
+    public Photo setUrlPhoto(String urlPhoto) {
+        this.urlPhoto = urlPhoto;
+        return this;
+    }
+
+    public LocalDate getDateajoutphoto() {
+        return dateajoutphoto;
+    }
+
+    public Photo setDateajoutphoto(LocalDate dateajoutphoto) {
+        this.dateajoutphoto = dateajoutphoto;
+        return this;
+    }
+
+    public Sejour getIdSejour() {
+        return idSejour;
+    }
+
+    public Photo setIdSejour(Sejour idSejour) {
+        this.idSejour = idSejour;
+        return this;
+    }
 }
