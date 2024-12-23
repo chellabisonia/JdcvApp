@@ -1,9 +1,7 @@
 package com.ada.rncp.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -12,6 +10,7 @@ import java.time.LocalDate;
 @Table(name = "sejour")
 public class Sejour {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_sejour", nullable = false)
     private Integer id;
 
