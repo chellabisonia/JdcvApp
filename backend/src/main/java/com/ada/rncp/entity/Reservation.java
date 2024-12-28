@@ -1,16 +1,16 @@
 package com.ada.rncp.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reservation")
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Reservation {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservation", nullable = false)
     private Integer id;
 
@@ -29,57 +29,89 @@ public class Reservation {
     @Column(name = "datefinreservationsejour")
     private LocalDate datefinreservationsejour;
 
+  /*  @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_utilisateur")
+    @JsonIgnoreProperties("reservations")
+    private Utilisateur utilisateur;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_sejour")
+    @JsonIgnoreProperties("reservations")
+    private Sejour sejour;*/
+
+   public  Reservation(){}
+
+    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants,LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour) {
+        this.dateReservation = dateReservation;
+        this.statut = statut;
+        this.nombreParticipants = nombreParticipants;
+        this.datedebutreservationsejour = datedebutreservationsejour;
+        this.datefinreservationsejour = datefinreservationsejour;
+        //this.utilisateur = utilisateur;
+        //this.sejour = sejour;
+    }
+
     public Integer getId() {
         return id;
     }
 
-    public Reservation setId(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
-        return this;
     }
 
     public LocalDate getDateReservation() {
         return dateReservation;
     }
 
-    public Reservation setDateReservation(LocalDate dateReservation) {
+    public void setDateReservation(LocalDate dateReservation) {
         this.dateReservation = dateReservation;
-        return this;
-    }
-
-    public Integer getNombreParticipants() {
-        return nombreParticipants;
-    }
-
-    public Reservation setNombreParticipants(Integer nombreParticipants) {
-        this.nombreParticipants = nombreParticipants;
-        return this;
     }
 
     public String getStatut() {
         return statut;
     }
 
-    public Reservation setStatut(String statut) {
+    public void setStatut(String statut) {
         this.statut = statut;
-        return this;
+    }
+
+    public Integer getNombreParticipants() {
+        return nombreParticipants;
+    }
+
+    public void setNombreParticipants(Integer nombreParticipants) {
+        this.nombreParticipants = nombreParticipants;
     }
 
     public LocalDate getDatedebutreservationsejour() {
         return datedebutreservationsejour;
     }
 
-    public Reservation setDatedebutreservationsejour(LocalDate datedebutreservationsejour) {
+    public void setDatedebutreservationsejour(LocalDate datedebutreservationsejour) {
         this.datedebutreservationsejour = datedebutreservationsejour;
-        return this;
     }
 
     public LocalDate getDatefinreservationsejour() {
         return datefinreservationsejour;
     }
 
-    public Reservation setDatefinreservationsejour(LocalDate datefinreservationsejour) {
+    public void setDatefinreservationsejour(LocalDate datefinreservationsejour) {
         this.datefinreservationsejour = datefinreservationsejour;
-        return this;
     }
+
+//    public Utilisateur getUtilisateur() {
+//        return utilisateur;
+//    }
+//
+//    public void setUtilisateur(Utilisateur utilisateur) {
+//        this.utilisateur = utilisateur;
+//    }
+//
+//    public Sejour getSejour() {
+//        return sejour;
+//    }
+//
+//    public void setSejour(Sejour sejour) {
+//        this.sejour = sejour;
+//    }
 }
