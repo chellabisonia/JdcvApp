@@ -1,9 +1,11 @@
 package com.ada.rncp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -34,6 +36,10 @@ public class Sejour {
 
     @Column(name = "datefindispo")
     private LocalDate datefindispo;
+
+    @OneToMany(mappedBy = "sejour", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -104,6 +110,15 @@ public class Sejour {
 
     public Sejour setDatefindispo(LocalDate datefindispo) {
         this.datefindispo = datefindispo;
+        return this;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public Sejour setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
         return this;
     }
 }
