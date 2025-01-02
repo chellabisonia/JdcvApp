@@ -1,7 +1,9 @@
 package com.ada.rncp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.List;
 
 
 @Entity
@@ -29,6 +31,10 @@ public class Utilisateur {
 
     @Column(name = "descriptionpersonnelle", length = Integer.MAX_VALUE)
     private String descriptionpersonnelle;
+
+    @OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -92,4 +98,14 @@ public class Utilisateur {
         this.descriptionpersonnelle = descriptionpersonnelle;
         return this;
     }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public Utilisateur setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+        return this;
+    }
+
 }

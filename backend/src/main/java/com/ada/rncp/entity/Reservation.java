@@ -1,13 +1,11 @@
 package com.ada.rncp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "reservation")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,26 +27,24 @@ public class Reservation {
     @Column(name = "datefinreservationsejour")
     private LocalDate datefinreservationsejour;
 
-  /*  @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_utilisateur")
-    @JsonIgnoreProperties("reservations")
     private Utilisateur utilisateur;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_sejour")
-    @JsonIgnoreProperties("reservations")
-    private Sejour sejour;*/
+    private Sejour sejour;
 
    public  Reservation(){}
 
-    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants,LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour) {
+    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants,LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour,Sejour sejour, Utilisateur utilisateur) {
         this.dateReservation = dateReservation;
         this.statut = statut;
         this.nombreParticipants = nombreParticipants;
         this.datedebutreservationsejour = datedebutreservationsejour;
         this.datefinreservationsejour = datefinreservationsejour;
-        //this.utilisateur = utilisateur;
-        //this.sejour = sejour;
+        this.utilisateur = utilisateur;
+        this.sejour = sejour;
     }
 
     public Integer getId() {
@@ -99,19 +95,19 @@ public class Reservation {
         this.datefinreservationsejour = datefinreservationsejour;
     }
 
-//    public Utilisateur getUtilisateur() {
-//        return utilisateur;
-//    }
-//
-//    public void setUtilisateur(Utilisateur utilisateur) {
-//        this.utilisateur = utilisateur;
-//    }
-//
-//    public Sejour getSejour() {
-//        return sejour;
-//    }
-//
-//    public void setSejour(Sejour sejour) {
-//        this.sejour = sejour;
-//    }
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Sejour getSejour() {
+        return sejour;
+    }
+
+    public void setSejour(Sejour sejour) {
+        this.sejour = sejour;
+    }
 }
