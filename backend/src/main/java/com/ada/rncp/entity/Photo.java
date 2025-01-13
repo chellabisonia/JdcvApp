@@ -18,9 +18,9 @@ public class Photo {
     @Column(name = "dateajoutphoto")
     private LocalDate dateajoutphoto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_sejour")
-    private Sejour idSejour;
+    private Sejour sejour;
 
     public Integer getId() {
         return id;
@@ -49,12 +49,12 @@ public class Photo {
         return this;
     }
 
-    public Sejour getIdSejour() {
-        return idSejour;
+    public Sejour getSejour() {
+        return sejour;
     }
 
-    public Photo setIdSejour(Sejour idSejour) {
-        this.idSejour = idSejour;
+    public Photo setSejour(Sejour idSejour) {
+        this.sejour = sejour;
         return this;
     }
 }
