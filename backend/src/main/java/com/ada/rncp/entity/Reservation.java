@@ -11,33 +11,25 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservation", nullable = false)
     private Integer id;
-
     @Column(name = "date_reservation")
     private LocalDate dateReservation;
-
     @Column(name = "nombre_participants")
     private Integer nombreParticipants;
-
     @Column(name = "statut", length = 50)
     private String statut;
-
     @Column(name = "datedebutreservationsejour")
     private LocalDate datedebutreservationsejour;
-
     @Column(name = "datefinreservationsejour")
     private LocalDate datefinreservationsejour;
-
     @ManyToOne()
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
-
     @ManyToOne()
     @JoinColumn(name = "id_sejour")
     private Sejour sejour;
+    public Reservation() {}
 
-   public  Reservation(){}
-
-    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants,LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour,Sejour sejour, Utilisateur utilisateur) {
+    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants, LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour, Sejour sejour, Utilisateur utilisateur) {
         this.dateReservation = dateReservation;
         this.statut = statut;
         this.nombreParticipants = nombreParticipants;

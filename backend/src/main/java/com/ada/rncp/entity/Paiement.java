@@ -28,9 +28,9 @@ public class Paiement {
     @Column(name = "statut", length = 50)
     private String statut;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_reservation")
-    private Reservation idReservation;
+    private Reservation reservation;
 
     public Integer getId() {
         return id;
@@ -86,12 +86,12 @@ public class Paiement {
         return this;
     }
 
-    public Reservation getIdReservation() {
-        return idReservation;
+    public Reservation getReservation() {
+        return reservation;
     }
 
-    public Paiement setIdReservation(Reservation idReservation) {
-        this.idReservation = idReservation;
+    public Paiement setIdReservation(Reservation reservation) {
+        this.reservation = reservation;
         return this;
     }
 }
