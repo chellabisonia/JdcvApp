@@ -43,7 +43,7 @@ public class Sejour {
 
     @OneToMany(mappedBy = "sejour", fetch = FetchType.LAZY)
     @JsonIgnore
-    private List<Sejour> sejours;
+    private List<Avi> avis;
 
     public Integer getId() {
         return id;

@@ -21,13 +21,13 @@ public class Avi {
     @Column(name = "date_avis")
     private LocalDate dateAvis;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_utilisateur")
-    private Utilisateur idUtilisateur;
+    private Utilisateur utilisateur;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "id_sejour")
-    private Sejour idSejour;
+    private Sejour sejour;
 
     public Integer getId() {
         return id;
@@ -65,21 +65,21 @@ public class Avi {
         return this;
     }
 
-    public Utilisateur getIdUtilisateur() {
-        return idUtilisateur;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
-    public Avi setIdUtilisateur(Utilisateur idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public Avi setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
         return this;
     }
 
-    public Sejour getIdSejour() {
-        return idSejour;
+    public Sejour getSejour() {
+        return sejour;
     }
 
-    public Avi setIdSejour(Sejour idSejour) {
-        this.idSejour = idSejour;
+    public Avi setSejour(Sejour sejour) {
+        this.sejour = sejour;
         return this;
     }
 }
