@@ -27,7 +27,7 @@ public class PaiementController {
             return ResponseEntity.ok(paiements);
         } catch (RuntimeException ex) {
             logger.error("Erreur: {}" + ex.getMessage());
-            return ResponseEntity.status(404).body(ex.getMessage());
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
 
     }
@@ -39,7 +39,7 @@ public class PaiementController {
             return ResponseEntity.ok(paiement);
         } catch (RuntimeException ex) {
             logger.error("Erreur {}" + ex.getMessage());
-            return ResponseEntity.status(404).body(ex.getMessage());
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class PaiementController {
             return ResponseEntity.ok("Paiement supprimé avec succés!");
         } catch (RuntimeException ex) {
             logger.error("Erreur: {}" + ex.getMessage());
-            return ResponseEntity.status(404).body(ex.getMessage());
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
 
     }
@@ -63,7 +63,7 @@ public class PaiementController {
             return ResponseEntity.ok(nouveauPaiement);
         } catch (RuntimeException ex) {
             logger.error("Erreur: {}", ex.getMessage());
-            return ResponseEntity.status(404).body(ex.getMessage());
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
     }
 
@@ -74,7 +74,7 @@ public class PaiementController {
             return ResponseEntity.ok(paiementMisAJour);
         } catch (RuntimeException ex) {
             logger.info("Erreur: {}", ex.getMessage());
-            return ResponseEntity.status(404).body(ex.getMessage());
+            return ResponseEntity.status(500).body(ex.getMessage());
 
         }
     }
