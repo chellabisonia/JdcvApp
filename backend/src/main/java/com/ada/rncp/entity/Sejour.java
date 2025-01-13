@@ -41,6 +41,10 @@ public class Sejour {
     @JsonIgnore
     private List<Reservation> reservations;
 
+    @OneToMany(mappedBy = "sejour", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Avi> avis;
+
     public Integer getId() {
         return id;
     }
