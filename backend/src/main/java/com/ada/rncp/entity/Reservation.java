@@ -27,9 +27,12 @@ public class Reservation {
     @ManyToOne()
     @JoinColumn(name = "id_sejour")
     private Sejour sejour;
-    public Reservation() {}
+    public Reservation() { }
 
-    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants, LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour, Sejour sejour, Utilisateur utilisateur) {
+    public Reservation(LocalDate dateReservation, String statut, Integer nombreParticipants,
+                       LocalDate datedebutreservationsejour, LocalDate datefinreservationsejour,
+                       Sejour sejour, Utilisateur utilisateur) {
+
         this.dateReservation = dateReservation;
         this.statut = statut;
         this.nombreParticipants = nombreParticipants;

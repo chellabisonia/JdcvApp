@@ -25,7 +25,8 @@ public class PaiementService {
     }
 
     public Paiement getOnePaiementById(Integer id) {
-        return paiementRepository.findById(id).orElseThrow(() -> new RuntimeException("Paiement non trouvé avec l'ID {}" + id));
+        return paiementRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Paiement non trouvé avec l'ID {}" + id));
     }
 
     public void deleteOnePaymentById(Integer id) {
@@ -42,8 +43,9 @@ public class PaiementService {
         return paiementRepository.save(paymentDetails);
     }
 
-    public Paiement updateOnePaymentById(Integer id, Paiement paymentDetails){
-        Paiement paymentExistant = paiementRepository.findById(id).orElseThrow(()->new RuntimeException("Le paiemant avec l'ID {} n'existe pas" + id));
+    public Paiement updateOnePaymentById(Integer id, Paiement paymentDetails) {
+        Paiement paymentExistant = paiementRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Le paiemant avec l'ID {} n'existe pas" + id));
 
         paymentExistant.setDatePaiement(paymentDetails.getDatePaiement());
         paymentExistant.setModePaiement(paymentDetails.getModePaiement());

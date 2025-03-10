@@ -25,7 +25,8 @@ public class ReservationService {
     }
 
     public Reservation getOneReservationById(Integer id) {
-        return reservationRepository.findById(id).orElseThrow(() -> new RuntimeException("Réservation non trouvée avec l'ID {}" + id));
+        return reservationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Réservation non trouvée avec l'ID {}" + id));
     }
 
 
@@ -46,7 +47,8 @@ public class ReservationService {
 
 
     public Reservation updateReservation(Integer id, Reservation reservationDetails) {
-        Reservation reservationExistante = reservationRepository.findById(id).orElseThrow(() -> new RuntimeException("La réservation avec l'ID {} n'esxiste pas" + id));
+        Reservation reservationExistante = reservationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("La réservation avec l'ID {} n'esxiste pas" + id));
 
 
         reservationExistante.setDateReservation(reservationDetails.getDateReservation());
