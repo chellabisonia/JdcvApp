@@ -1,3 +1,4 @@
+
 name: CI - Java Spring Boot
 
 on:
@@ -30,11 +31,42 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
+      - name: Debug environment
+        run: |
+          echo "Java version:"
+          java -version
+          echo "Maven version:"
+          mvn -version
+          echo "Current directory:"
+          pwd
+          echo "List of files in root:"
+          ls -la
+          echo "List of files in backend:"
+          ls -la backend
+          echo "List of files in src/test/resources:"
+          ls -la backend/src/test/resources/
+
+      - name: Check if application.properties or application.yml exist
+        run: |
+          if [ -f "backend/src/test/resources/application.properties" ]; then
+            echo "application.properties found"
+            cat backend/src/test/resources/application.properties
+          else
+            echo "application.properties NOT found"
+          fi
+          
+          if [ -f "backend/src/test/resources/application.yml" ]; then
+            echo "application.yml found"
+            cat backend/src/test/resources/application.yml
+          else
+            echo "application.yml NOT found"
+          fi
+
       - name: Install Checkstyle
         run: mvn checkstyle:check
 
-      - name: Run unit tests
-        run: mvn test
+      - name: Run unit tests with debug logs
+        run: mvn test -X
 
       - name: Generate JaCoCo coverage report
         run: mvn jacoco:report
@@ -43,4 +75,4 @@ jobs:
         uses: actions/upload-artifact@v4  # Mise à jour vers la version v4
         with:
           name: jacoco-report
-          path: target/site/jacoco/
+          path: backend/target/site/jacoco/
