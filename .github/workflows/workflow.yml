@@ -66,7 +66,11 @@ jobs:
         run: mvn checkstyle:check
 
       - name: Run unit tests with debug logs
-        run: mvn test -X
+        run: mvn test -X | tee mvn-test.log
+
+      - name: Display Surefire test reports
+        if: failure()
+        run: cat backend/target/surefire-reports/*.txt || true
 
       - name: Generate JaCoCo coverage report
         run: mvn jacoco:report
