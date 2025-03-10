@@ -25,7 +25,8 @@ public class SejourService {
     }
 
     public Sejour getOneSejourById(Integer id) {
-        return sejourRepository.findById(id).orElseThrow(() -> new RuntimeException("Séjour non trouvé avec l'ID {} " + id));
+        return sejourRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Séjour non trouvé avec l'ID {} " + id));
     }
 
     public void deleteOneSejourById(Integer id) {
@@ -44,7 +45,8 @@ public class SejourService {
     }
 
     public Sejour updateSejour(Integer id, Sejour sejourDetails) {
-        Sejour sejourExistant = sejourRepository.findById(id).orElseThrow(() -> new RuntimeException("Séjour non trouvé avec l'ID " + id));
+        Sejour sejourExistant = sejourRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Séjour non trouvé avec l'ID " + id));
 
         sejourExistant.setTitre(sejourDetails.getTitre());
         sejourDetails.setDescription(sejourDetails.getDescription());
