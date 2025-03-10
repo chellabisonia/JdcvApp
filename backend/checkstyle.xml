@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+
+    <!-- Vérifie la longueur des lignes -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+    </module>
+
+    <module name="TreeWalker">
+        <!-- Vérifie l'indentation correcte -->
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="tabWidth" value="4"/>
+        </module>
+
+        <!-- Vérifie les espaces après les mots-clés -->
+        <module name="WhitespaceAfter"/>
+
+        <!-- Vérifie les espaces autour des opérateurs -->
+        <module name="WhitespaceAround"/>
+    </module>
+</module>

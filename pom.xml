@@ -17,6 +17,8 @@
         <spring-boot.version>3.2.0</spring-boot.version>
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
         <mockito.version>5.5.0</mockito.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencyManagement>
@@ -59,8 +61,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <configLocation>${project.basedir}/checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
+                    <configLocation>backend/checkstyle.xml</configLocation>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                 </configuration>
