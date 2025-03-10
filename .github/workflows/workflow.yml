@@ -3,12 +3,16 @@ name: CI - Java Spring Boot
 on:
   # Permet de lancer le workflow manuellement
   workflow_dispatch:
-   push:
-     branches:
-        - main
-   pull_request:
-     branches:
-        - main
+
+  # Déclenchement sur push et pull request
+  push:
+    branches:
+      - main
+      - feat/ci-setup  # Ajout de ta branche pour qu'elle déclenche la CI
+
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
