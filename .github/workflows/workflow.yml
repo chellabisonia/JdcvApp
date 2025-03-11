@@ -62,6 +62,9 @@ jobs:
             echo "application.yml NOT found"
           fi
 
+      - name: Afficher les variables d'environnement
+        run: env | sort
+
       - name: Install Checkstyle
         run: mvn checkstyle:check
 
