@@ -56,7 +56,7 @@ mvn clean install
 ```bash
 mvn spring-boot:run
 ```
-📍 L'API est accessible à http://localhost:8080
+📍 L'API est accessible sur http://localhost:8080
 
 ---
 
@@ -74,7 +74,7 @@ npm install
 ```bash
   npm start
 ```
- 📍 L'application est accessible à http://localhost:3000
+ 📍 L'application est accessible sur http://localhost:3000
 
 ---
 
